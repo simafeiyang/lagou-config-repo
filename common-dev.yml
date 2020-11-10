@@ -1,10 +1,21 @@
-## QQ邮箱配置
 spring:
-  mail:
-    host: smtp.qq.com #发送邮件服务器
-    username: 517309804@qq.com #发送邮件的邮箱地址
-    password:  awznvjqobwkkbjfi #客户端授权码，不是邮箱密码，这个在qq邮箱设置里面自动生成的
-    properties.mail.smtp.port: 587
-    from: 517309804@qq.com # 发送邮件的地址，和上面username一致
-abc:
-  config: 34566
+  datasource:
+    url: jdbc:mysql://localhost:3306/spring_cloud?serverTimezone=UTC
+    username: root
+    password: root
+#注册到Eureka服务中心
+eureka:
+  client:
+    service-url:
+      # 注册到集群，就把多个Eurekaserver地址使用逗号连接起来即可；注册到单实例（非集群模式），那就写一个就ok
+      defaultZone: http://LagouCloudEurekaServerA:8761/eureka,http://LagouCloudEurekaServerB:8762/eureka
+  instance:
+    prefer-ip-address: true  #服务实例中显示ip，而不是显示主机名（兼容老的eureka版本）
+    # 实例名称： 192.168.1.103:lagou-service-resume:8080，我们可以自定义它
+    instance-id: ${spring.cloud.client.ip-address}:${spring.application.name}:${server.port}:@project.version@
+mybatis:
+  mapper-locations: classpath:mappers/*.xml
+email:
+  username: 674160378@qq.com
+  password: pklgwhkyqunvbahi
+  send: 674160378@qq.com
