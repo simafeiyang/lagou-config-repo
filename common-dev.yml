@@ -19,3 +19,6 @@ email:
   username: 695795847@qq.com
   password: lovejava1314
   send: 695795847@qq.com
+limit:
+  minute: 1
+  count: 2
