@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/lagou?serverTimezone=UTC
+    url: jdbc:mysql://localhost:3306/lagou?serverTimezone=Asia/Shanghai
     username: root
     password: root
 #注册到Eureka服务中心
